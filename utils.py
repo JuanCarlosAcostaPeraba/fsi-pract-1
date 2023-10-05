@@ -1,7 +1,6 @@
-
+import search, math
 #______________________________________________________________________________
 # Simple Data Structures: infinity, Dict, Struct
-import math
 
 infinity = 1.0e400
 
@@ -495,12 +494,10 @@ def DataFile(name, mode='r'):
 # Queues: Stack, FIFOQueue
 
 class Queue:
-    """Queue is an abstract class/interface. There are five types:
+    """Queue is an abstract class/interface. There are three types:
         Stack(): A Last In First Out Queue.
         FIFOQueue(): A First In First Out Queue.
         PriorityQueue(lt): Queue where items are sorted by lt, (default <).
-        BandBQueue(Queue): A Branch and Bound Queue.
-        BandBHeuristicQueue(Queue): A Branch and Bound Queue with Hueristics.
     Each type supports the following methods and functions:
         q.append(item)  -- add an item to the queue
         q.extend(items) -- equivalent to: for item in items: q.append(item)
@@ -546,45 +543,52 @@ class FIFOQueue(Queue):
             self.start = 0
         return e
 
+def takePathCost(elem):
+    return elem.path_cost
 
-class BandBQueue(Queue):
-    """ A Branch and Bound Queue"""
+class babg(Queue):
+    """A First-In-First-Out Queue."""
 
     def __init__(self):
         self.A = []
-        self.start = 0
 
     def append(self, item):
         self.A.append(item)
 
     def __len__(self):
-        return len(self.A) - self.start
+        return len(self.A)
 
     def extend(self, items):
         self.A.extend(items)
-        self.A.sort(key=lambda n: n.path_cost, reverse=True)
+        self.A.sort(key = takePathCost, reverse=True)
 
     def pop(self):
         return self.A.pop()
 
 
-class BandBHeuristicQueue(Queue):
-    """ A Branch and Bound Queue with Heuristic"""
+class babsubg(Queue):
+    """A First-In-First-Out Queue."""
+
     def __init__(self, problem):
         self.A = []
-        self.start = 0
         self.problem = problem
-
+        
     def append(self, item):
         self.A.append(item)
+
+    def takeHeuristic(self, elem):
+        return elem.path_cost + self.problem.h(elem)
+
     def __len__(self):
-        return len(self.A) - self.start
+        return len(self.A)
 
     def extend(self, items):
         self.A.extend(items)
-        self.A.sort(key=lambda n: n.path_cost + self.problem.h(n), reverse=True)
+        self.A.sort(key = self.takeHeuristic, reverse=True)
+
     def pop(self):
         return self.A.pop()
+
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
 ## Alas, it is Fig[3,10] not Fig[3.10], because that would be the same as Fig[3.1]
