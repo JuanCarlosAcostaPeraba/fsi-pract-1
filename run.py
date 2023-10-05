@@ -6,8 +6,6 @@ ab = search.GPSProblem('A', 'B', search.romania)
 print("======================================[CASO_1]======================================")
 print("En Anchura: " + str(search.breadth_first_graph_search(ab).path()))
 print("En Profundidad: " + str(search.depth_first_graph_search(ab).path()))
-print("Branch & Bound: " + str(search.bab(ab).path()))
-print("Branch & Bound con Subestimación: " + str(search.babsub(ab).path()))
 print("====================================================================================")
 
 """
@@ -26,8 +24,6 @@ af = search.GPSProblem('A', 'F', search.romania)
 print("======================================[CASO_2]======================================")
 print("En Anchura: " + str(search.breadth_first_graph_search(af).path()))
 print("En Profundidad: " + str(search.depth_first_graph_search(af).path()))
-print("Branch & Bound: " + str(search.bab(af).path()))
-print("Branch & Bound con Subestimación: " + str(search.babsub(af).path()))
 print("====================================================================================")
 
 """
@@ -45,8 +41,6 @@ np = search.GPSProblem('N', 'P', search.romania)
 print("======================================[CASO_3]======================================")
 print("En Anchura: " + str(search.breadth_first_graph_search(np).path()))
 print("En Profundidad: " + str(search.depth_first_graph_search(np).path()))
-print("Branch & Bound: " + str(search.bab(np).path()))
-print("Branch & Bound con Subestimación: " + str(search.babsub(np).path()))
 print("====================================================================================")
 
 """
@@ -65,8 +59,6 @@ ce = search.GPSProblem('C', 'E', search.romania)
 print("======================================[CASO_4]======================================")
 print("En Anchura: " + str(search.breadth_first_graph_search(ce).path()))
 print("En Profundidad: " + str(search.depth_first_graph_search(ce).path()))
-print("Branch & Bound: " + str(search.bab(ce).path()))
-print("Branch & Bound con Subestimación: " + str(search.babsub(ce).path()))
 print("====================================================================================")
 
 """
@@ -85,8 +77,6 @@ cs = search.GPSProblem('C', 'S', search.romania)
 print("======================================[CASO_5]======================================")
 print("En Anchura: " + str(search.breadth_first_graph_search(cs).path()))
 print("En Profundidad: " + str(search.depth_first_graph_search(cs).path()))
-print("Branch & Bound: " + str(search.bab(cs).path()))
-print("Branch & Bound con Subestimación: " + str(search.babsub(cs).path()))
 print("====================================================================================")
 
 """
