@@ -98,10 +98,13 @@ def graph_search(problem, fringe):
     The argument fringe should be an empty queue.
     If two paths reach a state, only use the best one. [Fig. 3.18]"""
     closed = {}
+    visited_node_count = 0
     fringe.append(Node(problem.initial))
     while fringe:
         node = fringe.pop()
+        visited_node_count += 1
         if problem.goal_test(node.state):
+            print("Contador de nodos visitados: ", visited_node_count)
             return node
         if node.state not in closed:
             closed[node.state] = True
@@ -118,7 +121,13 @@ def depth_first_graph_search(problem):
     """Search the deepest nodes in the search tree first. [p 74]"""
     return graph_search(problem, Stack())
 
+def branch_and_bound_graph_search(problem):
+    """Search the nodes using the Branch and Bound algorithm"""
+    return graph_search(problem, BandBQueue())
 
+def branch_and_bound_heuristic_search(problem):
+    """Search the nodes using the Branch and Bound algorithm using heuristic"""
+    return graph_search(problem, BandBHeuristicQueue(problem))
 
 # _____________________________________________________________________________
 # The remainder of this file implements examples for the search algorithms.
