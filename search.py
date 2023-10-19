@@ -5,6 +5,7 @@ then create problem instances and solve them with calls to the various search
 functions."""
 
 
+from sre_constants import SUCCESS
 from utils import *
 import random
 import sys
@@ -100,15 +101,23 @@ def graph_search(problem, fringe):
     closed = {}
     fringe.append(Node(problem.initial))
     exp = 0
+    gen_nodes = 1
+    # total_cost = 0
     while fringe:
         node = fringe.pop()
-        exp = exp + 1
+        exp += 1
         if problem.goal_test(node.state):
+            print("Nodos generados: ", gen_nodes)
             print("Nodos visitados: ", exp)
+            # print("Costo total", total_cost)
             return node
         if node.state not in closed:
             closed[node.state] = True
-            fringe.extend(node.expand(problem))
+            successor = node.expand(problem)
+            gen_nodes += len(successor)
+            # for s in successor:
+            #     total_cost += s.path_cost
+            fringe.extend(successor)
     return None
 
 
