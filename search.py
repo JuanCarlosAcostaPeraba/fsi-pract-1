@@ -102,21 +102,18 @@ def graph_search(problem, fringe):
     fringe.append(Node(problem.initial))
     exp = 0
     gen_nodes = 1
-    # total_cost = 0
     while fringe:
         node = fringe.pop()
         exp += 1
         if problem.goal_test(node.state):
             print("Nodos generados: ", gen_nodes)
             print("Nodos visitados: ", exp)
-            # print("Costo total", total_cost)
+            print("Costo total: ", takePathCost(node))
             return node
         if node.state not in closed:
             closed[node.state] = True
             successor = node.expand(problem)
             gen_nodes += len(successor)
-            # for s in successor:
-            #     total_cost += s.path_cost
             fringe.extend(successor)
     return None
 
