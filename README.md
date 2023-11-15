@@ -8,13 +8,13 @@ En el proyecto debemos encontrar las rutas mas cortas entre las diferentes ciuda
 
 ## MÉTODOS USADOS
 
-1. DFS(Depth First Graph Search): Con este método vamos añadiendo los diferentes nodos a una pila y comprobando si el nodo es el objetivo, si no lo es añadimos los nuevos nodos al principio de la pila.
+1. DFS (Depth First Graph Search): Con este método vamos añadiendo los diferentes nodos a una pila y comprobando si el nodo es el objetivo, si no lo es añadimos los nuevos nodos al principio de la pila.
 
-2. BFS(Breath First Graph Search): Con este método añadimos los nodos a una cola usando FIFO y comprobando si este es el objetivo, si no lo es seguimos añadiendo al final de la cola.
+2. BFS (Breath First Graph Search): Con este método añadimos los nodos a una cola usando FIFO y comprobando si este es el objetivo, si no lo es seguimos añadiendo al final de la cola.
 
-3. Ramificación y acotación(Branch & Bound): Con Branch & Bound añadiremos los nodos de uno a uno en una lista e iremos comprobando si es el objetivo, sino pasaremos al siguiente y cuando lo encontremos ordenaremos la lista en base al coste acumulado.
+3. Ramificación y acotación (Branch & Bound): Con Branch & Bound añadiremos los nodos de uno a uno en una lista e iremos comprobando si es el objetivo, sino pasaremos al siguiente y cuando lo encontremos ordenaremos la lista en base al coste acumulado.
 
-4. Ramificación y acotación con subestimación: Con este método vamos añadiendo a una lista los diferentes nodos y comprobando si este es el nodo objetivo, sino pasamos al siguiente y al final ordenamos la lista de mejor a peor según el coste acumulado y la heurística.
+4. Ramificación y acotación con subestimación (Branch and Bound ): Con este método vamos añadiendo a una lista los diferentes nodos y comprobando si este es el nodo objetivo, sino pasamos al siguiente y al final ordenamos la lista de mejor a peor según el coste acumulado y la heurística.
 
 ## ARCHIVOS
 
