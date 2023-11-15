@@ -18,11 +18,11 @@ En el proyecto debemos encontrar las rutas mas cortas entre las diferentes ciuda
 
 ## ARCHIVOS
 
-[run.py](./run.py) -> Aquí se encuentran las diferentes pruebas y los Output.
+[run.py](./run.py) → Aquí se encuentran las diferentes pruebas y los Output.
 
-[search.py](./search.py) -> Aquí es donde se encuentra el programa principal y donde se realizaran todos los métodos, también se encuentran los valores de las diferentes ciudades.
+[search.py](./search.py) → Aquí es donde se encuentra el programa principal y donde se realizaran todos los métodos, también se encuentran los valores de las diferentes ciudades.
 
-[utils.py](./utils.py) -> En este archivo es donde se crean los metodos para las pilas, colas... que usaremos para los DFS y BFS.
+[utils.py](./utils.py) → En este archivo es donde se crean los metodos para las pilas, colas... que usaremos para los DFS y BFS.
 
 ## TESTS
 
