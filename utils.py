@@ -551,19 +551,25 @@ class babg(Queue):
 
     def __init__(self):
         self.A = []
+        self.start = 0
 
     def append(self, item):
         self.A.append(item)
 
     def __len__(self):
-        return len(self.A)
+        return len(self.A)-self.start
 
     def extend(self, items):
         self.A.extend(items)
-        self.A.sort(key = takePathCost, reverse=True)
+        self.A.sort(key = lambda node: (takePathCost(node)))
 
     def pop(self):
-        return self.A.pop()
+        element = self.A[self.start]
+        self.start += 1
+        if self.start > 5 and self.start > len(self.A) / 2:
+            self.A = self.A[self.start:]
+            self.start = 0
+        return element
 
 
 class babsubg(Queue):
@@ -578,7 +584,7 @@ class babsubg(Queue):
         self.A.append(item)
 
     def takeHeuristic(self, elem):
-        return elem.path_cost + self.problem.h(elem)
+        return takePathCost(elem) + self.problem.h(elem)
 
     def __len__(self):
         return len(self.A) - self.start
