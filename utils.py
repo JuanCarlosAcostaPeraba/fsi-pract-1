@@ -572,6 +572,7 @@ class babsubg(Queue):
     def __init__(self, problem):
         self.A = []
         self.problem = problem
+        self.start = 0
 
     def append(self, item):
         self.A.append(item)
@@ -580,14 +581,19 @@ class babsubg(Queue):
         return elem.path_cost + self.problem.h(elem)
 
     def __len__(self):
-        return len(self.A)
+        return len(self.A) - self.start
 
     def extend(self, items):
         self.A.extend(items)
-        self.A.sort(key = self.takeHeuristic, reverse=True)
+        self.A.sort(key = lambda node: (self.takeHeuristic(node)))
 
     def pop(self):
-        return self.A.pop()
+        element = self.A[self.start]
+        self.start += 1
+        if self.start > 5 and self.start > len(self.A) / 2:
+            self.A = self.A[self.start:]
+            self.start = 0
+        return element
 
 ## Fig: The idea is we can define things like Fig[3,10] later.
 ## Alas, it is Fig[3,10] not Fig[3.10], because that would be the same as Fig[3.1]
