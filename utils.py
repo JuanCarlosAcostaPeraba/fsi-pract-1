@@ -589,5 +589,6 @@ class babsubg(Queue):
     def pop(self):
         return self.A.pop()
 
-# Cola propia para el algoritmo de ramificación y acotación
+## Fig: The idea is we can define things like Fig[3,10] later.
+## Alas, it is Fig[3,10] not Fig[3.10], because that would be the same as Fig[3.1]
 Fig = {}
